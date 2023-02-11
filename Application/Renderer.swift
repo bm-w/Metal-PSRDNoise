@@ -50,7 +50,10 @@ class Renderer {
 			let commandEncoder = asserted( commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor))
 		else { return }
 
-		var fragmentUniforms = FragmentUniforms(modifier: Float32(self._frameIndex) * .pi / 60)
+		var fragmentUniforms = FragmentUniforms(
+			modifier: Float32(self._frameIndex) * .pi / 60,
+			viewport: [Int32(drawableSize.width), Int32(drawableSize.height)]
+		)
 
 		commandEncoder.setRenderPipelineState(self.renderPipelineState)
 		commandEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout.stride(ofValue: fragmentUniforms), index: 0)
