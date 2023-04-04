@@ -10,7 +10,7 @@
 
 
 struct FragmentUniforms {
-	float modifier;
+	float time;
 	simd_int2 viewport;
 };
 

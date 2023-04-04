@@ -4,6 +4,7 @@
 //
 
 import Metal
+import func QuartzCore.CACurrentMediaTime
 
 
 class Renderer {
@@ -13,6 +14,7 @@ class Renderer {
 	let commandQueue: MTLCommandQueue
 
 	private var _frameIndex = 0
+	private var _started: TimeInterval?
 
 	init?() {
 		guard
@@ -50,8 +52,16 @@ class Renderer {
 			let commandEncoder = asserted( commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor))
 		else { return }
 
+		let time: Float32
+		if let started = self._started {
+			time = Float32(CACurrentMediaTime() - started)
+		} else {
+			self._started = CACurrentMediaTime()
+			time = 0
+		}
+
 		var fragmentUniforms = FragmentUniforms(
-			modifier: Float32(self._frameIndex) * .pi / 60,
+			time: time,
 			viewport: [Int32(drawableSize.width), Int32(drawableSize.height)]
 		)
 

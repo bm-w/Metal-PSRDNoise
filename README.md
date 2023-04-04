@@ -2,11 +2,11 @@
 
 ![Example output of a fractal noise sum](psrdnoise.png)
 
-An [MSL implemenation](Application/Main.metal#L38) of `psrdnoise` (in 2D), translated from the original GLSL: https://github.com/stegu/psrdnoise.
+MSL implementations of `prsdnoise` ([2D](Application/Main.metal#L40) & [3D](Application/Main.metal#L132)) translated from the original GLSL: https://github.com/stegu/psrdnoise.
 
 ---
 
-The entire content of this repository in the public domain, with the exception of the [`psrdnoise`](Application/Main.metal#L38) function implementeed in Metal Shading Language (MSL), which was adapted from the [original GLSL implementation](https://github.com/stegu/psrdnoise/blob/4d627ff/src/psrdnoise2-min.glsl#L5) that comes with an MIT license:
+The entire content of this repository is in the public domain, with the exception of the `psrdnoise` ([2D](Application/Main.metal#L38) & [3D](Application/Main.metal#L132)) functions implemented in Metal Shading Language (MSL), which were adapted from the original GLSL implementations ([2D](https://github.com/stegu/psrdnoise/blob/4d627ff/src/psrdnoise2-min.glsl#L5) & [3D](https://github.com/stegu/psrdnoise/blob/4d627ff/src/psrdnoise3-min.glsl#L10)) that come with an MIT license:
 
 Copyright 2021 Stefan Gustavson and Ian McEwan
 
